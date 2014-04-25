@@ -33,6 +33,12 @@ void draw() {
   // draw ...
   popMatrix();
 }
+void keyPressed() {
+  panZoomController.keyPressed();
+}
+void mouseDragged() {
+  panZoomController.mouseDragged();
+}
 </code>
 
 */
