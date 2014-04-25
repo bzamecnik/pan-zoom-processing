@@ -76,7 +76,7 @@ public class PanZoomController {
   }
 
   public void keyPressed() {
-    if (p.key == p.CODED) {
+    if (p.key == PConstants.CODED) {
       switch(p.keyCode) {
       case PApplet.UP:
         moveByKey(DIR_UP);
@@ -95,7 +95,7 @@ public class PanZoomController {
   }
 
   private void mouseWheel(int step) {
-    logScale = p.constrain(logScale + step * scaleVelocity, minLogScale, maxLogScale);
+    logScale = PApplet.constrain(logScale + step * scaleVelocity, minLogScale, maxLogScale);
     float prevScale = scale;
     scale = (float)Math.pow(2, logScale);
     
