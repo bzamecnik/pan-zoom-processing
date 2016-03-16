@@ -88,3 +88,6 @@ void mouseDragged() {
   panZoomController.mouseDragged();
 }
 
+void mouseWheel(MouseEvent event) {
+  panZoomController.mouseWheel(event.getCount());
+}

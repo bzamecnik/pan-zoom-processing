@@ -30,7 +30,7 @@ import processing.core.PVector;
  * }
  * void draw() {
  *   PVector pan = panZoomController.getPan();
- *   pushMatrix();  
+ *   pushMatrix();
  *   translate(pan.x, pan.y);
  *   scale(panZoomController.getScale());
  *   // draw ...
@@ -41,6 +41,9 @@ import processing.core.PVector;
  * }
  * void mouseDragged() {
  *   panZoomController.mouseDragged();
+ * }
+ * void mouseWheel(MouseEvent event) {
+ *   panZoomController.mouseWheel(event.getCount());
  * }
  * }
  * </pre>
@@ -65,11 +68,6 @@ public class PanZoomController {
 
 	public PanZoomController(PApplet p) {
 		this.p = p;
-		p.addMouseWheelListener(new MouseWheelListener() {
-			public void mouseWheelMoved(MouseWheelEvent event) {
-				mouseWheel(event.getWheelRotation());
-			}
-		});
 	}
 
 	public void mouseDragged() {
@@ -97,7 +95,7 @@ public class PanZoomController {
 		}
 	}
 
-	private void mouseWheel(int step) {
+	public void mouseWheel(int step) {
 		logScale = PApplet.constrain(logScale + step * scaleVelocity,
 			minLogScale,
 			maxLogScale);
